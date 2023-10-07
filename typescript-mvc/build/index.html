@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/local/index/normalize.css">
+    <link rel="stylesheet" href="css/local/index/index.css">
+</head>
+<body>
+    <div class="content__Main">
+        <div class="header">
+            <h1 class="tiulo">ECO-STORE: Productos</h1>
+        </div>
+        <div class="content container">
+            <div class="container__img">
+                <img src="" id="product_img"   alt="">
+
+                <div class="btns-div">
+
+                  <button type="button" title="Agregar " id="btnAdd" class="btn btn-success">+</button>
+                  <button type="button" title="Actualizar "id="btnEdit" class="btn btn-primary">&#8634;</button>
+
+                  <form method="DELETE" id="deleteID">
+
+                    <button title="Borrar" type="submit" id="btnDelete" class="btn btn-danger">-</button>
+                  </form>
+               
+                </div>
+            </div>
+            <div class="containerP">
+            
+                <div class="containerP__info">
+                  <div>
+                        <div class="div1">
+                          <div class="campo">
+
+                            <label for="product_id">ID</label>
+                            
+                            <form method="GET" id="buscarFormID">
+                              <input type="text" id="product_id">
+                              <button type="submit">Buscar</button>
+                            </form>
+
+                          </div>
+                          <div class="campo">
+
+                            <label for="product_titulo">Titulo</label>
+                            <input type="text" id="product_titulo">
+                          </div>
+                        </div>
+                        <div class="div2">
+                          <div>
+
+                            <label for="product_descripcion">Descripción</label>
+                          </div>
+                          <textarea name=""  cols="30" rows="10" id="product_descripcion">TESTT</textarea>
+                          
+                        </div>
+                        <div class="div3">
+                            <div class="precioCantidad">
+
+                              <div class="campo">
+                                
+                                <label for="product_precio">Precio</label>
+                                <input type="text" class="inputS" id="product_precio">
+                              </div>
+                              <div class="campo">
+                                
+                                <label for="product_cantidad">Cantidad</label>
+                                <input type="text"  class="inputS" id="product_cantidad">
+                              </div>
+                            </div>
+                           
+                            <div class="precioCantidad">
+
+                              <div class="campo">
+                                
+                                <label for="product_descuento">Descuento</label>
+                                
+                                <select id="product_descuento" class="inputS">
+                                  <option value="true">Sí</option>
+                                  <option value="false">No</option>
+                                </select>
+                              </div>
+                              <div class="campo">
+                                
+                                <label for="product_porcentaje">%</label> 
+                                <input type="text" class="inputS" id="product_porcentaje">
+                              </div>
+                              <div class="campo">
+                                
+                                <label for="product_unidad">Unid</label>
+                                <input type="text" class="inputS" id="product_unidad">
+                              </div>
+                              
+                            </div>
+                          </div>
+                        <div class="div4">
+                          <div class="campo">
+
+                            <label for="product_imagen">Imagen</label>
+                            
+                            <div class="input-group mb-3">
+                             
+                              <input type="file" class="form-control" name="imagen" id="product_imagen">
+                            </div>
+                          </div>
+
+                        </div>
+                        
+                    </div>
+                    <div id="btns">
+
+                      <button title="Anterior Pagina" id="prevButton">Anterior</button>
+                      <button title="Siguiente Pagina" id="nextButton">Siguiente</button>
+                      <button title="Guarda el producto" id="saveButton" class="noShow btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Error!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>No hay mas registros</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/local/index/index.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  
+</body>
+</html>

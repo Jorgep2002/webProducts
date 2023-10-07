@@ -1,0 +1,31 @@
+{
+  "name": "typescript-mvc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "ts-standard --fix",
+    "build": "tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.2",
+    "ts-standard": "^12.0.2",
+    "typescript": "^5.2.2"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "extends": "./node_modules/ts-standard/eslintrc.json"
+  },
+  "dependencies": {
+    "@types/bootstrap": "^5.2.6",
+    "bootstrap": "^5.3.1",
+    "fs-extra": "^11.1.1",
+    "sweetalert2": "^11.7.27"
+  }
+}
