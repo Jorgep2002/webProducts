@@ -91,7 +91,6 @@ export default class ProductsController {
           imagen,
         };
 
-        // Ahora, puedes agregar el producto a la base de datos utilizando this.productsModel.addProduct
         this.productsModel.addProduct(productData).then(() => {
             res.status(200).json({ message: 'Producto agregado con éxito' });
           })
@@ -99,7 +98,6 @@ export default class ProductsController {
             res.status(500).json({ message: 'Error al agregar el producto', error: err.message });
           });
       } catch (error) {
-        // Manejar errores en el procesamiento de los datos del producto
         res.status(400).json({ message: 'Error en el formato de los datos del producto', error});
       }
 
@@ -141,7 +139,6 @@ export default class ProductsController {
             res.status(500).json({ message: 'Error al actualizar el producto', error: err.message });
           });
       } catch (error) {
-        // Manejar errores en el procesamiento de los datos del producto
         res.status(400).json({ message: 'Error en el formato de los datos del producto', error});
       }
 

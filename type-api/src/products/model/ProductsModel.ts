@@ -59,18 +59,10 @@ export default class ProductsModel {
     return await new Promise((resolve, reject) => {
       try {
         const filePath = './src/products/database/products.json';
-
-        // Cargar el contenido actual del archivo JSON
         const currentData = fs.readFileSync(filePath, 'utf-8');
         const products = JSON.parse(currentData);
-        
-        // Datos del nuevo producto
-       
-        
-        // Agregar el nuevo producto al arreglo existente
         products.push(product);
         
-        // Escribir el contenido actualizado en el archivo JSON
         fs.writeFileSync(filePath, JSON.stringify(products, null, 2), 'utf-8');
         resolve(products)
       } catch (error) {
@@ -88,16 +80,13 @@ export default class ProductsModel {
         const currentData = fs.readFileSync(filePath, 'utf-8');
         const products = JSON.parse(currentData);
   
-        // Encuentra el índice del producto que deseas actualizar en el arreglo
         const productIndex = products.findIndex((product:ProductInterface) => product.id === updatedProduct.id);
   
         if (productIndex !== -1) {
-          // Reemplaza el producto existente con el producto actualizado
           products[productIndex] = updatedProduct;
           fs.writeFileSync(filePath, JSON.stringify(products, null, 2), 'utf-8');
           resolve(products);
         } else {
-          // Manejar el caso en el que el producto no se encuentra
           reject(new Error('El producto no se encontró para actualizar'));
         }
       } catch (error) {

@@ -66,12 +66,11 @@ export default class IndexModel {
       const requestOptions = {
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json', // Establece el tipo de contenido a JSON
+          'Content-Type': 'application/json', 
         },
-        body: JSON.stringify(product), // Convierte el objeto product a JSON
+        body: JSON.stringify(product), 
       };
     
-      // Realiza la solicitud PUU
       const response = await fetch(apiUrl, requestOptions);
     
       if (!response.ok) {
@@ -96,12 +95,11 @@ export default class IndexModel {
       const requestOptions = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json', // Establece el tipo de contenido a JSON
+          'Content-Type': 'application/json', 
         },
-        body: JSON.stringify(product), // Convierte el objeto product a JSON
+        body: JSON.stringify(product), 
       };
     
-      // Realiza la solicitud POST
       const response = await fetch(apiUrl, requestOptions);
     
       if (!response.ok) {

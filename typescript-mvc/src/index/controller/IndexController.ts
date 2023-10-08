@@ -9,6 +9,7 @@ export default class IndexController {
     this.view.prevProduct(this.model.getProducts());
     this.view.formGetProduct(this.searchProduct);
     this.view.deleteP(this.deleteP);
+    
     this.view.addP(this.addP);
     this.view.editP(this.editP);
 

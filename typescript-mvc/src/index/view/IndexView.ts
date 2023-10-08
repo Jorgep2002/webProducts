@@ -147,11 +147,14 @@ export default class IndexView {
   }
 
   editP(editP:(product:ProductInterface)=>void){
+
     const btnEdit = document.getElementById("btnEdit") as HTMLButtonElement;
     btnEdit.addEventListener("click",()=>{
-      
+      this.quitarReadOnly()  
     
-   
+      const btnUpt = document.getElementById("uptButton") as HTMLButtonElement;
+      btnUpt.classList.remove("noShow")
+      btnUpt.addEventListener("click", () => {
       const title = this.pTitulo.value;
       const amount = this.pCantidad.value;
       const price = parseFloat(this.pPrecio.value);
@@ -163,15 +166,26 @@ export default class IndexView {
       const id = parseInt(this.pId.value);
       const imagen = document.getElementById('product_imagen') as HTMLInputElement;
       const imageFile = imagen.files ? imagen.files[0] : null;
-      let imageBase64 = ''; // Inicializamos imageBase64 como una cadena vacía
-
+      let imageBase64 = ''; 
+      if (
+        id ==null ||
+        title === "" ||
+        amount === "" ||
+        price ==null ||
+        description === "" ||
+        discount === "" ||
+        discountPer == null||
+        discountUni === ""
+      ) {
+        alert("Por favor, complete todos los campos correctamente.");
+        return; 
+      }  
       if (imageFile) {
-        // Verificamos si se seleccionó un archivo de imagen
-        // Convierte el archivo de imagen a base64
+   
         const reader = new FileReader();
         reader.onload = function () {
           imageBase64 = reader.result as string;
-          console.log(imageBase64); // Muestra la cadena base64 en la consola
+          console.log(imageBase64); 
           const product = {
             id,
             title,
@@ -182,15 +196,15 @@ export default class IndexView {
             discount,
             discountPer,
             discountUni,
-            imagen: imageBase64, // Asignamos imageBase64 al campo imagen del producto
+            imagen: imageBase64, 
           };
 
           editP(product);
-        
+          btnUpt.classList.add("noShow")
+
         };
         reader.readAsDataURL(imageFile);
       } else {
-        console.log("NO HAY IMAGEN")
         const product = {
           id,
           title,
@@ -203,11 +217,11 @@ export default class IndexView {
           discountUni,
           imagen: '',
         };
-        console.log(product + "producto")
-        //Envía el objeto al modelo para que se encargue de agregarlo a la estructura
+   
         editP(product);
-        alert("Producto guardado")
+        alert("Producto Actualizado")
       }
+    });
     });
   }
 
@@ -231,23 +245,20 @@ export default class IndexView {
 
   addP = (addP: (product: ProductInterface) => void): void => {
     const btnAdd = document.getElementById("btnAdd") as HTMLButtonElement;
-  
     btnAdd.addEventListener("click", () => {
-  
+      this.quitarReadOnly()
       this.pImg.src = "img/not_found.png";
       this.pId.value = ``;
       this.pTitulo.value = ``;
       this.pDescripcion.value = ``;
       this.pPrecio.value = ``;
       this.pCantidad.value = ``;
-      this.pDescuento.value = ``;
+      this.pDescuento.value = `true`;
       this.pPorcentaje.value = ``;
       this.pUnidad.value = ``;
-  
       const btnSave = document.getElementById("saveButton") as HTMLButtonElement;
       btnSave.classList.remove("noShow")
       btnSave.addEventListener("click", () => {
-  
         const title = this.pTitulo.value;
         const amount = this.pCantidad.value;
         const price = parseFloat(this.pPrecio.value);
@@ -257,19 +268,28 @@ export default class IndexView {
         const discountPer = parseFloat(this.pPorcentaje.value);
         const discountUni = this.pUnidad.value;
         const id = parseInt(this.pId.value);
-        console.log(discount+"VALOR DEL DESCuento")
+        if (
+          id ==null ||
+          title === "" ||
+          amount === "" ||
+          price ==null ||
+          description === "" ||
+          discount === "" ||
+          discountPer == null||
+          discountUni === ""
+        ) {
+          alert("Por favor, complete todos los campos correctamente.");
+          return; 
+        }  
         const imagen = document.getElementById('product_imagen') as HTMLInputElement;
-
         const imageFile = imagen.files ? imagen.files[0] : null;
-        let imageBase64 = ''; // Inicializamos imageBase64 como una cadena vacía
-  
+        let imageBase64 = ''; 
         if (imageFile) {
-          // Verificamos si se seleccionó un archivo de imagen
-          // Convierte el archivo de imagen a base64
           const reader = new FileReader();
           reader.onload = function () {
             imageBase64 = reader.result as string;
-            console.log(imageBase64); // Muestra la cadena base64 en la consola
+            console.log(imageBase64);
+             
             const product = {
               id,
               title,
@@ -282,14 +302,13 @@ export default class IndexView {
               discountUni,
               imagen: imageBase64, // Asignamos imageBase64 al campo imagen del producto
             };
-  
+            
             addP(product);
             alert("Producto guardado")
             btnSave.classList.add("noShow")
           };
           reader.readAsDataURL(imageFile);
         } else {
-          console.log("NO HAY IMAGEN")
           const product = {
             id,
             title,
@@ -302,8 +321,6 @@ export default class IndexView {
             discountUni,
             imagen: '',
           };
-          console.log(product + "producto")
-          //Envía el objeto al modelo para que se encargue de agregarlo a la estructura
           addP(product);
           alert("Producto guardado")
           btnSave.classList.add("noShow")
@@ -318,6 +335,20 @@ export default class IndexView {
     
       porcentajeField.disabled = descuentoValue !== "true";
     }
+  
+     quitarReadOnly = () => {
+      this.pImg.removeAttribute('readonly');
+      this.pId.removeAttribute('readonly');
+      this.pTitulo.removeAttribute('readonly');
+      this.pDescripcion.removeAttribute('readonly');
+      this.pPrecio.removeAttribute('readonly');
+      this.pCantidad.removeAttribute('readonly');
+      this.pDescuento.removeAttribute('readonly');
+      this.pPorcentaje.removeAttribute('readonly');
+      this.pUnidad.removeAttribute('readonly');
+    };
+     
+
   
   }
   

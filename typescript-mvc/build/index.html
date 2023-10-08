@@ -39,7 +39,7 @@
                             <label for="product_id">ID</label>
                             
                             <form method="GET" id="buscarFormID">
-                              <input type="text" id="product_id">
+                              <input readonly type="text" id="product_id">
                               <button type="submit">Buscar</button>
                             </form>
 
@@ -47,7 +47,7 @@
                           <div class="campo">
 
                             <label for="product_titulo">Titulo</label>
-                            <input type="text" id="product_titulo">
+                            <input readonly type="text" id="product_titulo">
                           </div>
                         </div>
                         <div class="div2">
@@ -55,7 +55,7 @@
 
                             <label for="product_descripcion">Descripción</label>
                           </div>
-                          <textarea name=""  cols="30" rows="10" id="product_descripcion">TESTT</textarea>
+                          <textarea name="description"  readonly cols="30" rows="10" id="product_descripcion">TESTT</textarea>
                           
                         </div>
                         <div class="div3">
@@ -64,12 +64,12 @@
                               <div class="campo">
                                 
                                 <label for="product_precio">Precio</label>
-                                <input type="text" class="inputS" id="product_precio">
+                                <input readonly type="text" class="inputS" id="product_precio">
                               </div>
                               <div class="campo">
                                 
                                 <label for="product_cantidad">Cantidad</label>
-                                <input type="text"  class="inputS" id="product_cantidad">
+                                <input readonly type="text"  class="inputS" id="product_cantidad">
                               </div>
                             </div>
                            
@@ -79,7 +79,7 @@
                                 
                                 <label for="product_descuento">Descuento</label>
                                 
-                                <select id="product_descuento" name="discount" class="inputS">
+                                <select readonly id="product_descuento" name="discount" class="inputS">
                                   <option value="true">Sí</option>
                                   <option value="false">No</option>
                                 </select>
@@ -87,12 +87,12 @@
                               <div class="campo">
                                 
                                 <label for="product_porcentaje">%</label> 
-                                <input type="text" class="inputS" id="product_porcentaje">
+                                <input type="text" readonly class="inputS" id="product_porcentaje">
                               </div>
                               <div class="campo">
                                 
                                 <label for="product_unidad">Unid</label>
-                                <input type="text" class="inputS" id="product_unidad">
+                                <input type="text" readonly class="inputS" id="product_unidad">
                               </div>
                               
                             </div>
@@ -104,7 +104,7 @@
                             
                             <div class="input-group mb-3">
                              
-                              <input type="file" class="form-control" name="imagen" id="product_imagen">
+                              <input readonly type="file" class="form-control" name="imagen" id="product_imagen">
                             </div>
                           </div>
 
@@ -116,6 +116,7 @@
                       <button title="Anterior Pagina" id="prevButton">Anterior</button>
                       <button title="Siguiente Pagina" id="nextButton">Siguiente</button>
                       <button title="Guarda el producto" id="saveButton" class="noShow btn btn-primary">Guardar</button>
+                      <button title="Guarda el producto" id="uptButton" class="noShow btn btn-primary">Actualizar</button>
                     </div>
                 </div>
                 
