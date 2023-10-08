@@ -25,9 +25,7 @@ export default class IndexView {
     this.pCantidad = document.getElementById('product_cantidad') as HTMLInputElement;
     this.pDescuento = document.getElementById('product_descuento') as HTMLInputElement;
     this.pPorcentaje = document.getElementById('product_porcentaje') as HTMLInputElement;
-    this.pUnidad = document.getElementById('product_unidad') as HTMLInputElement;
-
-    this.pDescuento.addEventListener('change', this.togglePorcentajeEditable);
+    this.pUnidad = document.getElementById('product_unidad') as HTMLInputElement;    this.pDescuento.addEventListener('change', this.togglePorcentajeEditable);
     this.addImg();
   }
 
@@ -159,7 +157,7 @@ export default class IndexView {
       const price = parseFloat(this.pPrecio.value);
       const description = this.pDescripcion.value;
       const favorite = false;
-      const discount = this.pDescuento.checked;
+      const discount = this.pDescuento.value;
       const discountPer = parseFloat(this.pPorcentaje.value);
       const discountUni = this.pUnidad.value;
       const id = parseInt(this.pId.value);
@@ -218,7 +216,6 @@ export default class IndexView {
   addImg = ():void=>{
   
     let pImagen = document.getElementById("product_imagen") as HTMLInputElement;
-
     pImagen.onchange=function(e:any){
       let reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
@@ -256,10 +253,11 @@ export default class IndexView {
         const price = parseFloat(this.pPrecio.value);
         const description = this.pDescripcion.value;
         const favorite = false;
-        const discount = this.pDescuento.checked;
+        const discount = this.pDescuento.value;
         const discountPer = parseFloat(this.pPorcentaje.value);
         const discountUni = this.pUnidad.value;
         const id = parseInt(this.pId.value);
+        console.log(discount+"VALOR DEL DESCuento")
         const imagen = document.getElementById('product_imagen') as HTMLInputElement;
 
         const imageFile = imagen.files ? imagen.files[0] : null;

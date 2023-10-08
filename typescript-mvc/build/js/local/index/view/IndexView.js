@@ -131,10 +131,11 @@ export default class IndexView {
                     const price = parseFloat(this.pPrecio.value);
                     const description = this.pDescripcion.value;
                     const favorite = false;
-                    const discount = this.pDescuento.checked;
+                    const discount = this.pDescuento.value;
                     const discountPer = parseFloat(this.pPorcentaje.value);
                     const discountUni = this.pUnidad.value;
                     const id = parseInt(this.pId.value);
+                    console.log(discount + "VALOR DEL DESCuento");
                     const imagen = document.getElementById('product_imagen');
                     const imageFile = imagen.files ? imagen.files[0] : null;
                     let imageBase64 = ''; // Inicializamos imageBase64 como una cadena vacía
@@ -222,7 +223,7 @@ export default class IndexView {
             const price = parseFloat(this.pPrecio.value);
             const description = this.pDescripcion.value;
             const favorite = false;
-            const discount = this.pDescuento.checked;
+            const discount = this.pDescuento.value;
             const discountPer = parseFloat(this.pPorcentaje.value);
             const discountUni = this.pUnidad.value;
             const id = parseInt(this.pId.value);

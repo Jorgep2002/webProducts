@@ -4,9 +4,9 @@ export interface ProductInterface {
   amount: string
   price: number
   description: string
-  favorite: boolean
-  discount: boolean
-  discountPer: number
+  favorite?: boolean
+  discount?: boolean
+  discountPer?: number
   discountUni: string
   imagen?: string
 }
